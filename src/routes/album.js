@@ -40,3 +40,26 @@ router.post('/', async (req, res) => {
 		res.status(500).json({ error: 'Erro ao criar o álbum' });
 	}
 });
+
+router.put('/:albumId', async (req, res) => {
+	try {
+		const { albumId } = req.params;
+		const { name, artist, cover_url } = req.body;
+
+		const album = await Album.findByPk(albumId);
+
+		if (!album) {
+			return res.status(404).json({ error: 'Álbum não encontrado' });
+		}
+
+		album.name = name ?? album.name;
+		album.artist = artist ?? album.artist;
+		album.cover_url = cover_url ?? album.cover_url;
+
+		await album.save();
+
+		res.status(200).json(album);
+	} catch (error) {
+		res.status(500).json({ error: 'Erro ao atualizar o álbum' });
+	}
+});
