@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import Rating from "../models/rating.js"
 
 const router = Router();
@@ -26,6 +27,18 @@ router.get('/:ratingId', async (req, res) => {
 		res.status(200).json(rating);
 	} catch (error) {
 		res.status(500).json({ error: 'Erro ao obter a avaliação' });
+	}
+});
+
+router.post('/', async (req, res) => {
+	try {
+		const { score, commentary, songId, albumId } = req.body;
+
+		const rating = await Rating.create({ score, commentary, songId, albumId });
+
+		res.status(201).json(rating);
+	} catch (error) {
+		res.status(500).json({ error: 'Erro ao criar a avaliação' });
 	}
 });
 
