@@ -63,3 +63,23 @@ router.put('/:albumId', async (req, res) => {
 		res.status(500).json({ error: 'Erro ao atualizar o álbum' });
 	}
 });
+
+router.delete('/:albumId', async (req, res) => {
+	try {
+		const { albumId } = req.params;
+
+		const album = await Album.findByPk(albumId);
+
+		if (!album) {
+			return res.status(404).json({ error: 'Álbum não encontrado' });
+		}
+
+		await album.destroy();
+
+		res.status(200).json({ message: 'Álbum excluído com sucesso' });
+	} catch (error) {
+		res.status(500).json({ error: 'Erro ao excluir o álbum' });
+	}
+});
+
+export default router;
