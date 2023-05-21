@@ -33,15 +33,15 @@ router.get('/:songId', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	try {
-		const { name, duration, albumId } = req.body;
+		const { name, duration, album_id } = req.body;
 
-		const album = await Album.findByPk(albumId);
+		const album = await Album.findByPk(album_id);
 
 		if (!album) {
 			return res.status(404).json({ error: 'Álbum não encontrado' });
 		}
 
-		const song = await Song.create({ name, duration, albumId });
+		const song = await Song.create({ name, duration, album_id });
 
 		res.status(201).json(song);
 	} catch (error) {
@@ -52,7 +52,7 @@ router.post('/', async (req, res) => {
 router.put('/:songId', async (req, res) => {
 	try {
 		const { songId } = req.params;
-		const { name, duration, albumId } = req.body;
+		const { name, duration } = req.body;
 
 		const song = await Song.findByPk(songId);
 
@@ -62,7 +62,6 @@ router.put('/:songId', async (req, res) => {
 
 		song.name = name ?? song.name;
 		song.duration = duration ?? song.duration;
-		song.albumId = albumId ?? song.albumId;
 
 		await song.save();
 

@@ -10,9 +10,13 @@ const Rating = sequelize.define('Rating', {
 		autoIncrement: true,
 		primaryKey: true
 	},
-	value: {
+	score: {
 		type: DataTypes.INTEGER,
-		allowNull: false
+		allowNull: false,
+		validate: {
+			min: 0,
+			max: 10,
+		},
 	},
 	commentary: {
 		type: DataTypes.TEXT,

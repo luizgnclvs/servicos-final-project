@@ -32,9 +32,9 @@ router.get('/:ratingId', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	try {
-		const { score, commentary, songId, albumId } = req.body;
+		const { score, commentary, song_id, album_id } = req.body;
 
-		const rating = await Rating.create({ score, commentary, songId, albumId });
+		const rating = await Rating.create({ score, commentary, song_id, album_id });
 
 		res.status(201).json(rating);
 	} catch (error) {
