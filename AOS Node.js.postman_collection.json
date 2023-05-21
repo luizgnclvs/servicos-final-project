@@ -1573,7 +1573,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"value\": \"10\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": {{songId}}\r\n}"
+									"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": {{songId}}\r\n}"
 								},
 								"url": {
 									"raw": "http://localhost:8080/ratings",
