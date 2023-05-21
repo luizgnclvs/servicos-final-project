@@ -49,4 +49,27 @@ router.post('/', async (req, res) => {
 	}
 });
 
+router.put('/:songId', async (req, res) => {
+	try {
+		const { songId } = req.params;
+		const { name, duration, albumId } = req.body;
+
+		const song = await Song.findByPk(songId);
+
+		if (!song) {
+			return res.status(404).json({ error: 'Música não encontrada' });
+		}
+
+		song.name = name ?? song.name;
+		song.duration = duration ?? song.duration;
+		song.albumId = albumId ?? song.albumId;
+
+		await song.save();
+
+		res.status(200).json(song);
+	} catch (error) {
+		res.status(500).json({ error: 'Erro ao atualizar a música' });
+	}
+});
+
 export default router;
