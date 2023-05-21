@@ -30,3 +30,23 @@ router.get('/:songId', async (req, res) => {
 		res.status(500).json({ error: 'Erro ao obter a música' });
 	}
 });
+
+router.post('/', async (req, res) => {
+	try {
+		const { name, duration, albumId } = req.body;
+
+		const album = await Album.findByPk(albumId);
+
+		if (!album) {
+			return res.status(404).json({ error: 'Álbum não encontrado' });
+		}
+
+		const song = await Song.create({ name, duration, albumId });
+
+		res.status(201).json(song);
+	} catch (error) {
+		res.status(500).json({ error: 'Erro ao criar a música' });
+	}
+});
+
+export default router;
