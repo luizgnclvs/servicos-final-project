@@ -72,4 +72,23 @@ router.put('/:songId', async (req, res) => {
 	}
 });
 
+router.delete('/:songId', async (req, res) => {
+	try {
+		const { songId } = req.params;
+
+		const song = await Song.findByPk(songId);
+
+		if (!song) {
+			return res.status(404).json({ error: 'Música não encontrada' });
+		}
+
+		await song.destroy();
+
+		res.status(200).json({ message: 'Música excluída com sucesso' });
+	} catch (error) {
+		res.status(500).json({ error: 'Erro ao excluir a música' });
+	}
+});
+
+
 export default router;
