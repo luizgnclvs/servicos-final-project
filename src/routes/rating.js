@@ -1,6 +1,8 @@
 import { Router } from "express";
 
 import Rating from "../models/rating.js"
+import Album from "../models/album.js";
+import Song from "../models/song.js";
 
 const router = Router();
 
@@ -32,11 +34,31 @@ router.get('/:ratingId', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	try {
-		const { score, commentary, song_id, album_id } = req.body;
+		const { score, commentary, album_id, song_id } = req.body;
 
-		const rating = await Rating.create({ score, commentary, song_id, album_id });
+		if (!album_id && !song_id) {
+			res.status(400).json({ error: "Avaliação deve referir-se a um álbum ou música" })
+		} else if (album_id && song_id) {
+			res.status(400).json({ error: "Avaliação deve referir-se a um álbum ou música, mas nunca aos dois" })
+		} else if (album_id) {
+			const album = await Song.findByPk(album_id);
 
-		res.status(201).json(rating);
+			if (!album) {
+				return res.status(404).json({ error: 'Álbum não encontrado' });
+			}
+
+			const rating = await Rating.create({ score, commentary, album_id });
+			res.status(201).json(rating);
+		} else {
+			const song = await Song.findByPk(song_id);
+
+			if (!song) {
+				return res.status(404).json({ error: 'Música não encontrada' });
+			}
+
+			const rating = await Rating.create({ score, commentary, song_id });
+			res.status(201).json(rating);
+		}
 	} catch (error) {
 		res.status(500).json({ error: 'Erro ao criar a avaliação' });
 	}
