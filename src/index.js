@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/albums", routes.album);
 app.use("/songs", routes.song);
+app.use("/ratings", routes.rating);
 
 app.get("/", (req, res) => {
 	return res.send("Received a GET HTTP method");
