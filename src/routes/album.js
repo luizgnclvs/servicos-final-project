@@ -31,13 +31,13 @@ router.get('/:albumId', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	try {
-		const { name, artist, cover_url } = req.body;
+		const { name, artist, cover_url, release_year } = req.body;
 
-		const album = await Album.create({ name, artist, cover_url });
+		const album = await Album.create({ name, artist, cover_url, release_year });
 
 		res.status(201).json(album);
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao criar o álbum' });
+		res.status(500).json({ error: error.message ?? 'Erro ao criar o álbum' });
 	}
 });
 

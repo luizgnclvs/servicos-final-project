@@ -34,20 +34,20 @@ router.get('/:ratingId', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	try {
-		const { score, commentary, album_id, song_id } = req.body;
+		const { score, commentary, date, album_id, song_id } = req.body;
 
 		if (!album_id && !song_id) {
 			res.status(400).json({ error: "Avaliação deve referir-se a um álbum ou música" })
 		} else if (album_id && song_id) {
 			res.status(400).json({ error: "Avaliação deve referir-se a um álbum ou música, mas nunca aos dois" })
 		} else if (album_id) {
-			const album = await Song.findByPk(album_id);
+			const album = await Album.findByPk(album_id);
 
 			if (!album) {
 				return res.status(404).json({ error: 'Álbum não encontrado' });
 			}
 
-			const rating = await Rating.create({ score, commentary, album_id });
+			const rating = await Rating.create({ score, commentary, date, album_id });
 			res.status(201).json(rating);
 		} else {
 			const song = await Song.findByPk(song_id);
@@ -56,11 +56,11 @@ router.post('/', async (req, res) => {
 				return res.status(404).json({ error: 'Música não encontrada' });
 			}
 
-			const rating = await Rating.create({ score, commentary, song_id });
+			const rating = await Rating.create({ score, commentary, date, song_id });
 			res.status(201).json(rating);
 		}
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao criar a avaliação' });
+		res.status(500).json({ error: error.message ?? 'Erro ao criar a avaliação' });
 	}
 });
 
