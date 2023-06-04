@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.get('/:ratingId', async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
-		const { ratingId } = req.params;
+		const { id } = req.query;
 
-		const rating = await Rating.findByPk(ratingId);
+		const rating = await Rating.findByPk(id);
 
 		if (!rating) {
 			return res.status(404).json({ error: 'Avaliação não encontrada' });
@@ -64,12 +64,12 @@ router.post('/', async (req, res) => {
 	}
 });
 
-router.put('/:ratingId', async (req, res) => {
+router.put('/', async (req, res) => {
 	try {
-		const { ratingId } = req.params;
+		const { id } = req.query;
 		const { score, commentary } = req.body;
 
-		const rating = await Rating.findByPk(ratingId);
+		const rating = await Rating.findByPk(id);
 
 		if (!rating) {
 			return res.status(404).json({ error: 'Avaliação não encontrada' });
@@ -86,11 +86,11 @@ router.put('/:ratingId', async (req, res) => {
 	}
 });
 
-router.delete('/:ratingId', async (req, res) => {
+router.delete('/', async (req, res) => {
 	try {
-		const { ratingId } = req.params;
+		const { id } = req.query;
 
-		const rating = await Rating.findByPk(ratingId);
+		const rating = await Rating.findByPk(id);
 
 		if (!rating) {
 			return res.status(404).json({ error: 'Avaliação não encontrada' });

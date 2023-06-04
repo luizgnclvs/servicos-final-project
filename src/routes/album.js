@@ -13,11 +13,11 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.get('/:albumId', async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
-		const { albumId } = req.params;
+		const { id } = req.query;
 
-		const album = await Album.findByPk(albumId);
+		const album = await Album.findByPk(id);
 
 		if (!album) {
 			return res.status(404).json({ error: 'Álbum não encontrado' });
@@ -41,12 +41,12 @@ router.post('/', async (req, res) => {
 	}
 });
 
-router.put('/:albumId', async (req, res) => {
+router.put('/', async (req, res) => {
 	try {
-		const { albumId } = req.params;
+		const { id } = req.query;
 		const { name, artist, cover_url } = req.body;
 
-		const album = await Album.findByPk(albumId);
+		const album = await Album.findByPk(id);
 
 		if (!album) {
 			return res.status(404).json({ error: 'Álbum não encontrado' });
@@ -64,11 +64,11 @@ router.put('/:albumId', async (req, res) => {
 	}
 });
 
-router.delete('/:albumId', async (req, res) => {
+router.delete('/', async (req, res) => {
 	try {
-		const { albumId } = req.params;
+		const { id } = req.query;
 
-		const album = await Album.findByPk(albumId);
+		const album = await Album.findByPk(id);
 
 		if (!album) {
 			return res.status(404).json({ error: 'Álbum não encontrado' });

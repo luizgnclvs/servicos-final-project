@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.get('/:songId', async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
-		const { songId } = req.params;
+		const { id } = req.query;
 
-		const song = await Song.findByPk(songId);
+		const song = await Song.findByPk(id);
 
 		if (!song) {
 			return res.status(404).json({ error: 'Música não encontrada' });
@@ -49,12 +49,12 @@ router.post('/', async (req, res) => {
 	}
 });
 
-router.put('/:songId', async (req, res) => {
+router.put('/', async (req, res) => {
 	try {
-		const { songId } = req.params;
+		const { id } = req.query;
 		const { name, duration } = req.body;
 
-		const song = await Song.findByPk(songId);
+		const song = await Song.findByPk(id);
 
 		if (!song) {
 			return res.status(404).json({ error: 'Música não encontrada' });
@@ -71,11 +71,11 @@ router.put('/:songId', async (req, res) => {
 	}
 });
 
-router.delete('/:songId', async (req, res) => {
+router.delete('/', async (req, res) => {
 	try {
-		const { songId } = req.params;
+		const { id } = req.query;
 
-		const song = await Song.findByPk(songId);
+		const song = await Song.findByPk(id);
 
 		if (!song) {
 			return res.status(404).json({ error: 'Música não encontrada' });
