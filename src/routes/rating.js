@@ -7,28 +7,28 @@ import Song from "../models/song.js";
 const router = Router();
 
 router.get('/', async (req, res) => {
-	try {
+	const { id } = req.query;
+
+	if (id) {
+		try {
+			const rating = await Rating.findByPk(id);
+
+			if (!rating) {
+				return res.status(404).json({ error: 'Avaliação não encontrada' });
+			}
+	
+			res.status(200).json(rating);
+		} catch (error) {
+			res.status(500).json({ error: 'Erro ao obter a avaliação' });
+		}
+	} else {
+		try {
 		const ratings = await Rating.findAll();
 
-		res.status(200).json(ratings);
-	} catch (error) {
-		res.status(500).json({ error: 'Erro ao obter as avaliações' });
-	}
-});
-
-router.get('/', async (req, res) => {
-	try {
-		const { id } = req.query;
-
-		const rating = await Rating.findByPk(id);
-
-		if (!rating) {
-			return res.status(404).json({ error: 'Avaliação não encontrada' });
+			res.status(200).json(ratings);
+		} catch (error) {
+			res.status(500).json({ error: 'Erro ao obter as avaliações' });
 		}
-
-		res.status(200).json(rating);
-	} catch (error) {
-		res.status(500).json({ error: 'Erro ao obter a avaliação' });
 	}
 });
 

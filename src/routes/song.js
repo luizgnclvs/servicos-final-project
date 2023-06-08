@@ -6,28 +6,28 @@ import Album from "../models/album.js"
 const router = Router();
 
 router.get('/', async (req, res) => {
-	try {
-		const songs = await Song.findAll();
+	const { id } = req.query;
 
-		res.status(200).json(songs);
-	} catch (error) {
-		res.status(500).json({ error: 'Erro ao obter as músicas' });
-	}
-});
+	if (id) {
+		try {
+			const song = await Song.findByPk(id);
 
-router.get('/', async (req, res) => {
-	try {
-		const { id } = req.query;
-
-		const song = await Song.findByPk(id);
-
-		if (!song) {
-			return res.status(404).json({ error: 'Música não encontrada' });
+			if (!song) {
+				return res.status(404).json({ error: 'Música não encontrada' });
+			}
+	
+			res.status(200).json(song);
+		} catch (error) {
+			res.status(500).json({ error: 'Erro ao obter a música' });
 		}
+	} else {
+		try {
+			const songs = await Song.findAll();
 
-		res.status(200).json(song);
-	} catch (error) {
-		res.status(500).json({ error: 'Erro ao obter a música' });
+			res.status(200).json(songs);
+		} catch (error) {
+			res.status(500).json({ error: 'Erro ao obter as músicas' });
+		}
 	}
 });
 
