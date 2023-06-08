@@ -5,17 +5,20 @@ import Album from './album.js';
 
 const Song = sequelize.define('Song', {
 	id: {
-		type: DataTypes.INTEGER,
-		autoIncrement: true,
-		primaryKey: true
+		type: DataTypes.UUID,
+		defaultValue: DataTypes.UUIDV4,
+		primaryKey: true,
 	},
 	name: {
 		type: DataTypes.STRING,
-		allowNull: false
+		allowNull: false,
+		validate: {
+			notEmpty: true,
+		},
 	},
 	duration: {
 		type: DataTypes.INTEGER,
-		allowNull: true
+		allowNull: true,
 	},
 });
 

@@ -34,15 +34,13 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"The Altar\",\r\n    \"artist\": \"Banks\",\r\n    \"cover_url\": \"...\"\r\n}"
+							"raw": "{\r\n    \"name\": \"The Altar\",\r\n    \"artist\": \"Banks\",\r\n    \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/008690e8c42ca3db18e6701d41aeb9a3_the_altar.jpg\",\r\n    \"release_year\": 2016\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/albums",
-							"protocol": "http",
+							"raw": "{{aos-node}}/albums",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
 								"albums"
 							]
@@ -62,15 +60,13 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"The Altar\",\r\n    \"artist\": \"Banks\",\r\n    \"cover_url\": \"oi\"\r\n}"
+									"raw": "{\r\n    \"name\": \"The Altar\",\r\n    \"artist\": \"Banks\",\r\n    \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/008690e8c42ca3db18e6701d41aeb9a3_the_altar.jpg\",\r\n    \"release_year\": 2016\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/albums",
-									"protocol": "http",
+									"raw": "{{aos-node}}/albums",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
 										"albums"
 									]
@@ -94,15 +90,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "139"
+									"value": "313"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8b-RYHAa6QvYlu1eL6f7zRbSYiWQ7U\""
+									"value": "W/\"139-qYHfM5m0oOZM7Zdm73RgGyydKxU\""
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 20 May 2023 18:45:37 GMT"
+									"value": "Thu, 08 Jun 2023 17:03:19 GMT"
 								},
 								{
 									"key": "Connection",
@@ -114,7 +110,72 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"The Altar\",\n    \"artist\": \"Banks\",\n    \"cover_url\": \"...\",\n    \"updatedAt\": \"2023-05-20T18:45:36.243Z\",\n    \"createdAt\": \"2023-05-20T18:45:36.243Z\"\n}"
+							"body": "{\n    \"id\": \"683bf687-977f-49e8-bd14-8f3082d31378\",\n    \"name\": \"The Altar\",\n    \"artist\": \"Banks\",\n    \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/008690e8c42ca3db18e6701d41aeb9a3_the_altar.jpg\",\n    \"release_year\": 2016,\n    \"updatedAt\": \"2023-06-08T17:03:18.801Z\",\n    \"createdAt\": \"2023-06-08T17:03:18.801Z\"\n}"
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"artist\": \"Banks\",\r\n    \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/008690e8c42ca3db18e6701d41aeb9a3_the_altar.jpg\",\r\n    \"release_year\": 2016\r\n}"
+								},
+								"url": {
+									"raw": "{{aos-node}}/albums",
+									"host": [
+										"{{aos-node}}"
+									],
+									"path": [
+										"albums"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38-wbByQwDAoqjHSSYyFgNJIYMU33w\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 17:12:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"notNull Violation: Album.name cannot be null\"\n}"
 						}
 					]
 				},
@@ -131,18 +192,21 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"cover_url\": \"!!!\"\r\n}"
+							"raw": "{\r\n    \"artist\": \"BANKS\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/albums/{{albumId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/albums?id={{albumId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"albums",
-								"{{albumId}}"
+								"albums"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{albumId}}"
+								}
 							]
 						}
 					},
@@ -160,18 +224,21 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"The Altar\",\r\n    \"artist\": \"Banks\",\r\n    \"cover_url\": \"!!!\"\r\n}"
+									"raw": "{\r\n    \"artist\": \"BANKS\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/albums/{{albumId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/albums?id=683bf687-977f-49e8-bd14-8f3082d31378",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"albums",
-										"{{albumId}}"
+										"albums"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "683bf687-977f-49e8-bd14-8f3082d31378"
+										}
 									]
 								}
 							},
@@ -193,15 +260,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "139"
+									"value": "313"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8b-uoXzOUqeq1Y5yL7Psxy1RmF1mWo\""
+									"value": "W/\"139-f0M9cGS2pZw/2S4UdJyJ2IDRO/g\""
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 20 May 2023 18:54:13 GMT"
+									"value": "Thu, 08 Jun 2023 17:05:46 GMT"
 								},
 								{
 									"key": "Connection",
@@ -213,7 +280,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"The Altar\",\n    \"artist\": \"Banks\",\n    \"cover_url\": \"!!!\",\n    \"createdAt\": \"2023-05-20T18:45:36.243Z\",\n    \"updatedAt\": \"2023-05-20T18:45:36.243Z\"\n}"
+							"body": "{\n    \"id\": \"683bf687-977f-49e8-bd14-8f3082d31378\",\n    \"name\": \"The Altar\",\n    \"artist\": \"BANKS\",\n    \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/008690e8c42ca3db18e6701d41aeb9a3_the_altar.jpg\",\n    \"release_year\": 2016,\n    \"createdAt\": \"2023-06-08T17:03:18.801Z\",\n    \"updatedAt\": \"2023-06-08T17:05:46.426Z\"\n}"
 						},
 						{
 							"name": "Not Found",
@@ -228,18 +295,21 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"cover_url\": \"!!!\"\r\n}"
+									"raw": "{\r\n    \"artist\": \"BANKS\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/albums/{{albumId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/albums?id=314b2ab2-ae02-40fc-928d-619004e2a7a9",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"albums",
-										"{{albumId}}"
+										"albums"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "314b2ab2-ae02-40fc-928d-619004e2a7a9"
+										}
 									]
 								}
 							},
@@ -269,7 +339,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 20 May 2023 18:55:35 GMT"
+									"value": "Thu, 08 Jun 2023 17:06:37 GMT"
 								},
 								{
 									"key": "Connection",
@@ -282,6 +352,77 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"error\": \"Álbum não encontrado\"\n}"
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"release_year\": 1954\r\n}"
+								},
+								"url": {
+									"raw": "{{aos-node}}/albums?id=fea02073-2c50-4f6b-a551-39e650350ff2",
+									"host": [
+										"{{aos-node}}"
+									],
+									"path": [
+										"albums"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "fea02073-2c50-4f6b-a551-39e650350ff2"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "125"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7d-Ld0/UM3v2Zll4ES2oKxocy7jC5k\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 17:43:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Validation error: O ano de lançamento deve ser válido e não pode ser posterior ao ano atual ou anterior a 1955\"\n}"
 						}
 					]
 				},
@@ -297,15 +438,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/albums/{{albumId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/albums?id={{albumId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"albums",
-								"{{albumId}}"
+								"albums"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{albumId}}"
+								}
 							]
 						}
 					},
@@ -322,15 +466,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/albums/{{albumId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/albums?id=683bf687-977f-49e8-bd14-8f3082d31378",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"albums",
-										"{{albumId}}"
+										"albums"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "683bf687-977f-49e8-bd14-8f3082d31378"
+										}
 									]
 								}
 							},
@@ -352,15 +499,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "140"
+									"value": "313"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8c-HHQM1WBEP/KxLzwn7lS5h1jMTMQ\""
+									"value": "W/\"139-q0MD2sJFkqpggiTExd8cSDIp2Fg\""
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 20 May 2023 18:58:02 GMT"
+									"value": "Thu, 08 Jun 2023 17:03:40 GMT"
 								},
 								{
 									"key": "Connection",
@@ -372,7 +519,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"The Altar\",\n    \"artist\": \"Banks\",\n    \"cover_url\": \"...\",\n    \"createdAt\": \"2023-05-20T18:45:36.243Z\",\n    \"updatedAt\": \"2023-05-20T18:55:18.552Z\"\n}"
+							"body": "{\n    \"id\": \"683bf687-977f-49e8-bd14-8f3082d31378\",\n    \"name\": \"The Altar\",\n    \"artist\": \"Banks\",\n    \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/008690e8c42ca3db18e6701d41aeb9a3_the_altar.jpg\",\n    \"release_year\": 2016,\n    \"createdAt\": \"2023-06-08T17:03:18.801Z\",\n    \"updatedAt\": \"2023-06-08T17:03:18.801Z\"\n}"
 						},
 						{
 							"name": "Not Found",
@@ -386,15 +533,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/albums/{{albumId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/albums?id=314b2ab2-ae02-40fc-928d-619004e2a7a9",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"albums",
-										"{{albumId}}"
+										"albums"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "314b2ab2-ae02-40fc-928d-619004e2a7a9"
+										}
 									]
 								}
 							},
@@ -424,7 +574,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 20 May 2023 18:58:42 GMT"
+									"value": "Thu, 08 Jun 2023 17:04:09 GMT"
 								},
 								{
 									"key": "Connection",
@@ -452,12 +602,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/albums",
-							"protocol": "http",
+							"raw": "{{aos-node}}/albums",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
 								"albums"
 							]
@@ -476,12 +624,10 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/albums",
-									"protocol": "http",
+									"raw": "{{aos-node}}/albums",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
 										"albums"
 									]
@@ -505,15 +651,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "142"
+									"value": "1246"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8e-VdMmW1xMQ1W22Nl1C4uzo6JSy1Y\""
+									"value": "W/\"4de-tDOmqR6ggFzswGX6mBQfaL/e0X4\""
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 20 May 2023 19:01:02 GMT"
+									"value": "Thu, 08 Jun 2023 17:12:15 GMT"
 								},
 								{
 									"key": "Connection",
@@ -525,7 +671,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"The Altar\",\n        \"artist\": \"Banks\",\n        \"cover_url\": \"...\",\n        \"createdAt\": \"2023-05-20T18:45:36.243Z\",\n        \"updatedAt\": \"2023-05-20T18:55:18.552Z\"\n    }\n]"
+							"body": "[\n    {\n        \"id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\",\n        \"name\": \"The Altar\",\n        \"artist\": \"Banks\",\n        \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/008690e8c42ca3db18e6701d41aeb9a3_the_altar.jpg\",\n        \"release_year\": 2016,\n        \"createdAt\": \"2023-06-08T17:08:03.224Z\",\n        \"updatedAt\": \"2023-06-08T17:08:03.224Z\"\n    },\n    {\n        \"id\": \"22f2e955-d617-4ac8-94bd-c0b04ec4842e\",\n        \"name\": \"III\",\n        \"artist\": \"Banks\",\n        \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/93130bcd30300d8bd6d9eec00a39a1b9_iii.jfif\",\n        \"release_year\": 2019,\n        \"createdAt\": \"2023-06-08T17:08:39.017Z\",\n        \"updatedAt\": \"2023-06-08T17:11:07.100Z\"\n    },\n    {\n        \"id\": \"738ca1c8-b84e-4702-87ef-cdea31991dc0\",\n        \"name\": \"Serpentina\",\n        \"artist\": \"Banks\",\n        \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/76fcaa10717bb972f2ddf89dba149021_serpentina.jfif\",\n        \"release_year\": 2022,\n        \"createdAt\": \"2023-06-08T17:11:46.405Z\",\n        \"updatedAt\": \"2023-06-08T17:11:46.405Z\"\n    },\n    {\n        \"id\": \"ecee867d-99b5-4a66-b1b4-e1dd648a9d46\",\n        \"name\": \"Goddess\",\n        \"artist\": \"Banks\",\n        \"cover_url\": \"https://parsefiles.back4app.com/emImppLbrG6yG2NH334Cx898GVcFTY4R6jW3x3Lj/5b71f21b8cb2e6bcb50ae1dc699fb962_goddess.jfif\",\n        \"release_year\": 2014,\n        \"createdAt\": \"2023-06-08T17:12:04.739Z\",\n        \"updatedAt\": \"2023-06-08T17:12:04.739Z\"\n    }\n]"
 						}
 					]
 				},
@@ -541,15 +687,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/albums/{{albumId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/albums?id={{albumId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"albums",
-								"{{albumId}}"
+								"albums"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{albumId}}"
+								}
 							]
 						}
 					},
@@ -566,15 +715,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/albums/{{albumId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/albums?id={{albumId}}",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"albums",
-										"{{albumId}}"
+										"albums"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "{{albumId}}"
+										}
 									]
 								}
 							},
@@ -604,7 +756,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 20 May 2023 19:03:27 GMT"
+									"value": "Thu, 08 Jun 2023 17:07:21 GMT"
 								},
 								{
 									"key": "Connection",
@@ -630,15 +782,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/albums/{{albumId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/albums?id=314b2ab2-ae02-40fc-928d-619004e2a7a9",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"albums",
-										"{{albumId}}"
+										"albums"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "314b2ab2-ae02-40fc-928d-619004e2a7a9"
+										}
 									]
 								}
 							},
@@ -668,7 +823,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sat, 20 May 2023 19:01:46 GMT"
+									"value": "Thu, 08 Jun 2023 17:07:37 GMT"
 								},
 								{
 									"key": "Connection",
@@ -717,12 +872,10 @@
 							"raw": "{\r\n    \"name\": \"Gemini Feed\",\r\n    \"duration\": \"186\",\r\n    \"album_id\": {{albumId}}\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/songs",
-							"protocol": "http",
+							"raw": "{{aos-node}}/songs",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
 								"songs"
 							]
@@ -742,15 +895,13 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Gemini Feed\",\r\n    \"duration\": \"186\",\r\n    \"albumId\": {{albumId}}\r\n}"
+									"raw": "{\r\n    \"name\": \"Gemini Feed\",\r\n    \"duration\": \"186\",\r\n    \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/songs",
-									"protocol": "http",
+									"raw": "{{aos-node}}/songs",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
 										"songs"
 									]
@@ -774,15 +925,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "138"
+									"value": "209"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8a-4IWGvCNVmfPvd3ilD9n5p3dDWLE\""
+									"value": "W/\"d1-IQ3mSJAsTT2R++zng6kowYY61I4\""
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 16:58:20 GMT"
+									"value": "Thu, 08 Jun 2023 17:26:41 GMT"
 								},
 								{
 									"key": "Connection",
@@ -794,7 +945,137 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"Gemini Feed\",\n    \"duration\": 186,\n    \"updatedAt\": \"2023-05-21T16:58:20.023Z\",\n    \"createdAt\": \"2023-05-21T16:58:20.023Z\",\n    \"album_id\": 1\n}"
+							"body": "{\n    \"id\": \"ec609ab0-196c-43ae-bfac-35dd2dc7fe07\",\n    \"name\": \"Gemini Feed\",\n    \"duration\": 186,\n    \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\",\n    \"updatedAt\": \"2023-06-08T17:26:41.491Z\",\n    \"createdAt\": \"2023-06-08T17:26:41.491Z\"\n}"
+						},
+						{
+							"name": "Album Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Gemini Feed\",\r\n    \"duration\": \"186\",\r\n    \"album_id\": \"683bf687-977f-49e8-bd14-8f3082d31378\"\r\n}"
+								},
+								"url": {
+									"raw": "{{aos-node}}/songs",
+									"host": [
+										"{{aos-node}}"
+									],
+									"path": [
+										"songs"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22-oGqYXN8m62R0CH2EoAqrziwd088\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 17:25:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Álbum não encontrado\"\n}"
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\",\r\n    \"duration\": \"186\",\r\n    \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\"\r\n}"
+								},
+								"url": {
+									"raw": "{{aos-node}}/songs",
+									"host": [
+										"{{aos-node}}"
+									],
+									"path": [
+										"songs"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-cTvgu502zYITRKdB1NQU42qQ/kk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 17:46:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Validation error: Validation notEmpty on name failed\"\n}"
 						}
 					]
 				},
@@ -814,15 +1095,18 @@
 							"raw": "{\r\n    \"name\": \"GEMINI FEED\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/songs/{{songId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/songs?id={{songId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"songs",
-								"{{songId}}"
+								"songs"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{songId}}"
+								}
 							]
 						}
 					},
@@ -843,15 +1127,18 @@
 									"raw": "{\r\n    \"name\": \"GEMINI FEED\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/songs/{{songId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/songs?id=ec609ab0-196c-43ae-bfac-35dd2dc7fe07",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"songs",
-										"{{songId}}"
+										"songs"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "ec609ab0-196c-43ae-bfac-35dd2dc7fe07"
+										}
 									]
 								}
 							},
@@ -873,15 +1160,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "138"
+									"value": "209"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8a-4VRABFk2XKuZF6eFdilXA2TUQVU\""
+									"value": "W/\"d1-caWPXjKJXGKLCcfHT8CmAdZ1wso\""
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 17:18:39 GMT"
+									"value": "Thu, 08 Jun 2023 17:31:23 GMT"
 								},
 								{
 									"key": "Connection",
@@ -893,7 +1180,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"GEMINI FEED\",\n    \"duration\": 186,\n    \"createdAt\": \"2023-05-21T16:58:20.023Z\",\n    \"updatedAt\": \"2023-05-21T17:18:39.687Z\",\n    \"album_id\": 1\n}"
+							"body": "{\n    \"id\": \"ec609ab0-196c-43ae-bfac-35dd2dc7fe07\",\n    \"name\": \"GEMINI FEED\",\n    \"duration\": 186,\n    \"createdAt\": \"2023-06-08T17:26:41.491Z\",\n    \"updatedAt\": \"2023-06-08T17:31:23.819Z\",\n    \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\"\n}"
 						},
 						{
 							"name": "Not Found",
@@ -911,15 +1198,18 @@
 									"raw": "{\r\n    \"name\": \"GEMINI FEED\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/songs/{{songId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/songs?id=fea02073-2c50-4f6b-a551-39e650350ff2",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"songs",
-										"{{songId}}"
+										"songs"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "fea02073-2c50-4f6b-a551-39e650350ff2"
+										}
 									]
 								}
 							},
@@ -949,7 +1239,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 17:19:14 GMT"
+									"value": "Thu, 08 Jun 2023 17:32:18 GMT"
 								},
 								{
 									"key": "Connection",
@@ -962,6 +1252,77 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"error\": \"Música não encontrada\"\n}"
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"\"\r\n}"
+								},
+								"url": {
+									"raw": "{{aos-node}}/songs?id=aa1c4da4-ceb6-4542-90ed-7c87dd82fc45",
+									"host": [
+										"{{aos-node}}"
+									],
+									"path": [
+										"songs"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "aa1c4da4-ceb6-4542-90ed-7c87dd82fc45"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-cTvgu502zYITRKdB1NQU42qQ/kk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 17:47:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Validation error: Validation notEmpty on name failed\"\n}"
 						}
 					]
 				},
@@ -977,15 +1338,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/songs/{{songId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/songs?id={{songId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"songs",
-								"{{songId}}"
+								"songs"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{songId}}"
+								}
 							]
 						}
 					},
@@ -1002,15 +1366,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/songs/{{songId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/songs?id=ec609ab0-196c-43ae-bfac-35dd2dc7fe07",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"songs",
-										"{{songId}}"
+										"songs"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "ec609ab0-196c-43ae-bfac-35dd2dc7fe07"
+										}
 									]
 								}
 							},
@@ -1032,15 +1399,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "138"
+									"value": "209"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8a-4VRABFk2XKuZF6eFdilXA2TUQVU\""
+									"value": "W/\"d1-caWPXjKJXGKLCcfHT8CmAdZ1wso\""
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 17:19:52 GMT"
+									"value": "Thu, 08 Jun 2023 17:33:06 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1052,7 +1419,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"GEMINI FEED\",\n    \"duration\": 186,\n    \"createdAt\": \"2023-05-21T16:58:20.023Z\",\n    \"updatedAt\": \"2023-05-21T17:18:39.687Z\",\n    \"album_id\": 1\n}"
+							"body": "{\n    \"id\": \"ec609ab0-196c-43ae-bfac-35dd2dc7fe07\",\n    \"name\": \"GEMINI FEED\",\n    \"duration\": 186,\n    \"createdAt\": \"2023-06-08T17:26:41.491Z\",\n    \"updatedAt\": \"2023-06-08T17:31:23.819Z\",\n    \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\"\n}"
 						},
 						{
 							"name": "Not Found",
@@ -1066,15 +1433,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/songs/{{songId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/songs?id=fea02073-2c50-4f6b-a551-39e650350ff2",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"songs",
-										"{{songId}}"
+										"songs"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "fea02073-2c50-4f6b-a551-39e650350ff2"
+										}
 									]
 								}
 							},
@@ -1104,7 +1474,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 17:20:15 GMT"
+									"value": "Thu, 08 Jun 2023 17:33:34 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1132,12 +1502,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/songs",
-							"protocol": "http",
+							"raw": "{{aos-node}}/songs",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
 								"songs"
 							]
@@ -1156,12 +1524,10 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/songs",
-									"protocol": "http",
+									"raw": "{{aos-node}}/songs",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
 										"songs"
 									]
@@ -1185,15 +1551,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "557"
+									"value": "420"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"22d-tWyDbk41Vu8OOCbxN+LTvOJ6xo4\""
+									"value": "W/\"1a4-5+JAFS3Qz/yKCrGP4YjfhH1BFX4\""
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 17:20:49 GMT"
+									"value": "Thu, 08 Jun 2023 17:39:46 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1205,7 +1571,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Gemini Feed\",\n        \"duration\": 186,\n        \"createdAt\": \"2023-05-21T16:55:42.847Z\",\n        \"updatedAt\": \"2023-05-21T16:55:42.847Z\",\n        \"album_id\": 1\n    }\n]"
+							"body": "[\n    {\n        \"id\": \"aa1c4da4-ceb6-4542-90ed-7c87dd82fc45\",\n        \"name\": \"Gemini Feed\",\n        \"duration\": 186,\n        \"createdAt\": \"2023-06-08T17:37:28.111Z\",\n        \"updatedAt\": \"2023-06-08T17:37:28.111Z\",\n        \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\"\n    },\n    {\n        \"id\": \"4042a56f-dc9c-4c0c-9a28-8aa9ec53ed50\",\n        \"name\": \"Trainwreck\",\n        \"duration\": 221,\n        \"createdAt\": \"2023-06-08T17:39:18.000Z\",\n        \"updatedAt\": \"2023-06-08T17:39:18.000Z\",\n        \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\"\n    }\n]"
 						}
 					]
 				},
@@ -1221,15 +1587,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/songs/{{songId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/songs?id={{songId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"songs",
-								"{{songId}}"
+								"songs"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{songId}}"
+								}
 							]
 						}
 					},
@@ -1246,15 +1615,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/songs/{{songId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/songs?id=ec609ab0-196c-43ae-bfac-35dd2dc7fe07",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"songs",
-										"{{songId}}"
+										"songs"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "ec609ab0-196c-43ae-bfac-35dd2dc7fe07"
+										}
 									]
 								}
 							},
@@ -1284,7 +1656,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 17:21:59 GMT"
+									"value": "Thu, 08 Jun 2023 17:36:18 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1310,15 +1682,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/songs/{{songId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/songs?id=fea02073-2c50-4f6b-a551-39e650350ff2",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"songs",
-										"{{songId}}"
+										"songs"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "fea02073-2c50-4f6b-a551-39e650350ff2"
+										}
 									]
 								}
 							},
@@ -1348,7 +1723,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 17:22:13 GMT"
+									"value": "Thu, 08 Jun 2023 17:36:54 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1370,10 +1745,10 @@
 			"name": "Rating",
 			"item": [
 				{
-					"name": "Create Rating",
+					"name": "Create",
 					"item": [
 						{
-							"name": "Create Album Rating",
+							"name": "Album Rating",
 							"event": [
 								{
 									"listen": "test",
@@ -1397,15 +1772,13 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": {{albumId}}\r\n}"
+									"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": \"{{albumId}}\",\r\n    \"date\": \"2023-06-02\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/ratings",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
 										"ratings"
 									]
@@ -1425,15 +1798,13 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": {{albumId}}\r\n}"
+											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\",\r\n    \"date\": \"2023-06-01\"\r\n}"
 										},
 										"url": {
-											"raw": "http://localhost:8080/ratings",
-											"protocol": "http",
+											"raw": "{{aos-node}}/ratings",
 											"host": [
-												"localhost"
+												"{{aos-node}}"
 											],
-											"port": "8080",
 											"path": [
 												"ratings"
 											]
@@ -1457,15 +1828,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "158"
+											"value": "252"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"9e-jOcCsTkuQiZ+zO4VI4REyQGcwDo\""
+											"value": "W/\"fc-L3nKNd6bNIMb5thBLSSn9dqNmkk\""
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 21 May 2023 21:48:19 GMT"
+											"value": "Thu, 08 Jun 2023 17:50:12 GMT"
 										},
 										{
 											"key": "Connection",
@@ -1477,10 +1848,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"id\": 1,\n    \"score\": 10,\n    \"commentary\": \"I love this album\",\n    \"album_id\": 1,\n    \"updatedAt\": \"2023-05-21T21:48:18.946Z\",\n    \"createdAt\": \"2023-05-21T21:48:18.946Z\",\n    \"song_id\": null\n}"
+									"body": "{\n    \"id\": \"f5a80b91-1212-4880-bcc9-a476c1775e51\",\n    \"score\": 10,\n    \"commentary\": \"I love this album\",\n    \"date\": \"2023-06-01\",\n    \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\",\n    \"updatedAt\": \"2023-06-08T17:50:12.520Z\",\n    \"createdAt\": \"2023-06-08T17:50:12.520Z\",\n    \"song_id\": null\n}"
 								},
 								{
-									"name": "404 Album Not Found",
+									"name": "Album Not Found",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -1492,15 +1863,13 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": 3\r\n}"
+											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": \"ec609ab0-196c-43ae-bfac-35dd2dc7fe07\",\r\n    \"date\": \"2023-06-01\"\r\n}"
 										},
 										"url": {
-											"raw": "http://localhost:8080/ratings",
-											"protocol": "http",
+											"raw": "{{aos-node}}/ratings",
 											"host": [
-												"localhost"
+												"{{aos-node}}"
 											],
-											"port": "8080",
 											"path": [
 												"ratings"
 											]
@@ -1532,7 +1901,7 @@
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 21 May 2023 22:07:21 GMT"
+											"value": "Thu, 08 Jun 2023 17:50:34 GMT"
 										},
 										{
 											"key": "Connection",
@@ -1545,6 +1914,71 @@
 									],
 									"cookie": [],
 									"body": "{\n    \"error\": \"Álbum não encontrado\"\n}"
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\",\r\n    \"date\": \"2023-06-10\"\r\n}"
+										},
+										"url": {
+											"raw": "{{aos-node}}/ratings",
+											"host": [
+												"{{aos-node}}"
+											],
+											"path": [
+												"ratings"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "150"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"96-xlP94w0YVMDKnNAJ210jJ1HGuEo\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 08 Jun 2023 17:51:41 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Validation error: Data de avaliação deve ser válida e não pode ser posterior à data de hoje ou anterior ao dia 12 de Novembro de 1955\"\n}"
 								}
 							]
 						},
@@ -1573,15 +2007,13 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": {{songId}}\r\n}"
+									"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": \"{{songId}}\",\r\n    \"date\": \"2023-05-31\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/ratings",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
 										"ratings"
 									]
@@ -1601,15 +2033,13 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": {{songId}}\r\n}"
+											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": \"aa1c4da4-ceb6-4542-90ed-7c87dd82fc45\",\r\n    \"date\": \"2023-05-31\"\r\n}"
 										},
 										"url": {
-											"raw": "http://localhost:8080/ratings",
-											"protocol": "http",
+											"raw": "{{aos-node}}/ratings",
 											"host": [
-												"localhost"
+												"{{aos-node}}"
 											],
-											"port": "8080",
 											"path": [
 												"ratings"
 											]
@@ -1633,15 +2063,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "157"
+											"value": "251"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"9d-nCiBZWaeS+BQSpMfl6oW3b9HDzw\""
+											"value": "W/\"fb-yRyOdX5ZcHaICQ6Pp7oqAHyDjZM\""
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 21 May 2023 22:09:20 GMT"
+											"value": "Thu, 08 Jun 2023 17:57:06 GMT"
 										},
 										{
 											"key": "Connection",
@@ -1653,10 +2083,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n    \"id\": 1,\n    \"score\": 10,\n    \"commentary\": \"I love this song\",\n    \"song_id\": 1,\n    \"updatedAt\": \"2023-05-21T22:09:20.211Z\",\n    \"createdAt\": \"2023-05-21T22:09:20.211Z\",\n    \"album_id\": null\n}"
+									"body": "{\n    \"id\": \"7cbbc464-b3cc-483e-96dc-b01320f599f2\",\n    \"score\": 10,\n    \"commentary\": \"I love this song\",\n    \"date\": \"2023-05-31\",\n    \"song_id\": \"aa1c4da4-ceb6-4542-90ed-7c87dd82fc45\",\n    \"updatedAt\": \"2023-06-08T17:57:06.597Z\",\n    \"createdAt\": \"2023-06-08T17:57:06.597Z\",\n    \"album_id\": null\n}"
 								},
 								{
-									"name": "404 Song Not Found",
+									"name": "Song Not Found",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -1668,15 +2098,13 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": 3\r\n}"
+											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": \"f5a80b91-1212-4880-bcc9-a476c1775e51\",\r\n    \"date\": \"2023-05-31\"\r\n}"
 										},
 										"url": {
-											"raw": "http://localhost:8080/ratings",
-											"protocol": "http",
+											"raw": "{{aos-node}}/ratings",
 											"host": [
-												"localhost"
+												"{{aos-node}}"
 											],
-											"port": "8080",
 											"path": [
 												"ratings"
 											]
@@ -1708,7 +2136,7 @@
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 21 May 2023 22:10:02 GMT"
+											"value": "Thu, 08 Jun 2023 17:55:41 GMT"
 										},
 										{
 											"key": "Connection",
@@ -1721,11 +2149,76 @@
 									],
 									"cookie": [],
 									"body": "{\n    \"error\": \"Música não encontrada\"\n}"
+								},
+								{
+									"name": "Validation Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"score\": \"11\",\r\n    \"commentary\": \"I love this song\",\r\n    \"song_id\": \"aa1c4da4-ceb6-4542-90ed-7c87dd82fc45\",\r\n    \"date\": \"2023-05-31\"\r\n}"
+										},
+										"url": {
+											"raw": "{{aos-node}}/ratings",
+											"host": [
+												"{{aos-node}}"
+											],
+											"path": [
+												"ratings"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "60"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3c-fegwUXU7WLLY484p/YBcHI3pT9g\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 08 Jun 2023 17:56:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Validation error: Validation max on score failed\"\n}"
 								}
 							]
 						},
 						{
-							"name": "400 Bad Request",
+							"name": "400 Album & Song",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -1740,12 +2233,10 @@
 									"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": 1,\r\n    \"song_id\": 1\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/ratings",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
 										"ratings"
 									]
@@ -1753,7 +2244,7 @@
 							},
 							"response": [
 								{
-									"name": "400 W/ ALBUM_ID & SONG_ID",
+									"name": "400",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -1768,12 +2259,10 @@
 											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\",\r\n    \"album_id\": 1,\r\n    \"song_id\": 1\r\n}"
 										},
 										"url": {
-											"raw": "http://localhost:8080/ratings",
-											"protocol": "http",
+											"raw": "{{aos-node}}/ratings",
 											"host": [
-												"localhost"
+												"{{aos-node}}"
 											],
-											"port": "8080",
 											"path": [
 												"ratings"
 											]
@@ -1805,7 +2294,7 @@
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 21 May 2023 22:14:49 GMT"
+											"value": "Thu, 08 Jun 2023 17:58:34 GMT"
 										},
 										{
 											"key": "Connection",
@@ -1818,73 +2307,6 @@
 									],
 									"cookie": [],
 									"body": "{\n    \"error\": \"Avaliação deve referir-se a um álbum ou música, mas nunca aos dois\"\n}"
-								},
-								{
-									"name": "400 W/O ALBUM_ID & SONG_ID",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"score\": \"10\",\r\n    \"commentary\": \"I love this album\"\r\n}"
-										},
-										"url": {
-											"raw": "http://localhost:8080/ratings",
-											"protocol": "http",
-											"host": [
-												"localhost"
-											],
-											"port": "8080",
-											"path": [
-												"ratings"
-											]
-										}
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "62"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3e-BmOuSMsOvQgvkSNysv7fXd0ds6k\""
-										},
-										{
-											"key": "Date",
-											"value": "Sun, 21 May 2023 22:15:52 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"error\": \"Avaliação deve referir-se a um álbum ou música\"\n}"
 								}
 							]
 						}
@@ -1906,15 +2328,18 @@
 							"raw": "{\r\n    \"commentary\": \"I love it!!!\"\r\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/ratings/{{ratingId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/ratings?id={{ratingId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"ratings",
-								"{{ratingId}}"
+								"ratings"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ratingId}}"
+								}
 							]
 						}
 					},
@@ -1935,15 +2360,18 @@
 									"raw": "{\r\n    \"commentary\": \"I love it!!!\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/ratings/{{ratingId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings?id=7cbbc464-b3cc-483e-96dc-b01320f599f2",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"ratings",
-										"{{ratingId}}"
+										"ratings"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "7cbbc464-b3cc-483e-96dc-b01320f599f2"
+										}
 									]
 								}
 							},
@@ -1965,15 +2393,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "153"
+									"value": "247"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"99-Zv9pU/Qrr6zglTUX8VNtADIB050\""
+									"value": "W/\"f7-K3QK4REpTqF4e66VkYNMzt9tZ4g\""
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 22:18:08 GMT"
+									"value": "Thu, 08 Jun 2023 18:02:45 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1985,10 +2413,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"score\": 10,\n    \"commentary\": \"I love it!!!\",\n    \"createdAt\": \"2023-05-21T22:11:30.770Z\",\n    \"updatedAt\": \"2023-05-21T22:18:08.782Z\",\n    \"album_id\": 1,\n    \"song_id\": null\n}"
+							"body": "{\n    \"id\": \"7cbbc464-b3cc-483e-96dc-b01320f599f2\",\n    \"score\": 10,\n    \"commentary\": \"I love it!!!\",\n    \"date\": \"2023-05-31\",\n    \"createdAt\": \"2023-06-08T17:57:06.597Z\",\n    \"updatedAt\": \"2023-06-08T18:02:45.449Z\",\n    \"album_id\": null,\n    \"song_id\": \"aa1c4da4-ceb6-4542-90ed-7c87dd82fc45\"\n}"
 						},
 						{
-							"name": "404 Not Found",
+							"name": "Not Found",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -2003,15 +2431,18 @@
 									"raw": "{\r\n    \"commentary\": \"I love it!!!\"\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/ratings/{{ratingId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings?id=aa1c4da4-ceb6-4542-90ed-7c87dd82fc45",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"ratings",
-										"{{ratingId}}"
+										"ratings"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "aa1c4da4-ceb6-4542-90ed-7c87dd82fc45"
+										}
 									]
 								}
 							},
@@ -2041,7 +2472,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 22:18:53 GMT"
+									"value": "Thu, 08 Jun 2023 18:01:07 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2054,6 +2485,77 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"error\": \"Avaliação não encontrada\"\n}"
+						},
+						{
+							"name": "Validation Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"score\": \"77\"\r\n}"
+								},
+								"url": {
+									"raw": "{{aos-node}}/ratings?id={{ratingId}}",
+									"host": [
+										"{{aos-node}}"
+									],
+									"path": [
+										"ratings"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "{{ratingId}}"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-fegwUXU7WLLY484p/YBcHI3pT9g\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 08 Jun 2023 18:02:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Validation error: Validation max on score failed\"\n}"
 						}
 					]
 				},
@@ -2069,15 +2571,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/ratings/{{ratingId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/ratings?id={{ratingId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"ratings",
-								"{{ratingId}}"
+								"ratings"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ratingId}}"
+								}
 							]
 						}
 					},
@@ -2094,15 +2599,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/ratings/{{ratingId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings?id=7cbbc464-b3cc-483e-96dc-b01320f599f2",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"ratings",
-										"{{ratingId}}"
+										"ratings"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "7cbbc464-b3cc-483e-96dc-b01320f599f2"
+										}
 									]
 								}
 							},
@@ -2124,15 +2632,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "158"
+									"value": "247"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"9e-1V+8FHDwffy20BEm5Xa5rhFxevE\""
+									"value": "W/\"f7-K3QK4REpTqF4e66VkYNMzt9tZ4g\""
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 22:20:00 GMT"
+									"value": "Thu, 08 Jun 2023 18:03:18 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2144,10 +2652,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"score\": 10,\n    \"commentary\": \"I love this album\",\n    \"createdAt\": \"2023-05-21T22:19:52.535Z\",\n    \"updatedAt\": \"2023-05-21T22:19:52.535Z\",\n    \"album_id\": 1,\n    \"song_id\": null\n}"
+							"body": "{\n    \"id\": \"7cbbc464-b3cc-483e-96dc-b01320f599f2\",\n    \"score\": 10,\n    \"commentary\": \"I love it!!!\",\n    \"date\": \"2023-05-31\",\n    \"createdAt\": \"2023-06-08T17:57:06.597Z\",\n    \"updatedAt\": \"2023-06-08T18:02:45.449Z\",\n    \"album_id\": null,\n    \"song_id\": \"aa1c4da4-ceb6-4542-90ed-7c87dd82fc45\"\n}"
 						},
 						{
-							"name": "404 Not Found",
+							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -2158,15 +2666,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/ratings/{{ratingId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings?id=aa1c4da4-ceb6-4542-90ed-7c87dd82fc45",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"ratings",
-										"{{ratingId}}"
+										"ratings"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "aa1c4da4-ceb6-4542-90ed-7c87dd82fc45"
+										}
 									]
 								}
 							},
@@ -2196,7 +2707,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 22:20:54 GMT"
+									"value": "Thu, 08 Jun 2023 18:04:28 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2224,12 +2735,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/ratings",
-							"protocol": "http",
+							"raw": "{{aos-node}}/ratings",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
 								"ratings"
 							]
@@ -2237,7 +2746,7 @@
 					},
 					"response": [
 						{
-							"name": "Fecth All Ratings",
+							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -2248,12 +2757,10 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/ratings",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
 										"ratings"
 									]
@@ -2277,15 +2784,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "472"
+									"value": "502"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"1d8-JvXC3TtO6fy6cBBGzSD8PUbmrNQ\""
+									"value": "W/\"1f6-SULCaYxF7VUcftLazswr1Ofo7us\""
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 22:21:38 GMT"
+									"value": "Thu, 08 Jun 2023 18:05:49 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2297,7 +2804,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"score\": 10,\n        \"commentary\": \"I love this song\",\n        \"createdAt\": \"2023-05-21T22:09:20.211Z\",\n        \"updatedAt\": \"2023-05-21T22:09:20.211Z\",\n        \"album_id\": 1,\n        \"song_id\": null\n    }\n]"
+							"body": "[\n    {\n        \"id\": \"7cbbc464-b3cc-483e-96dc-b01320f599f2\",\n        \"score\": 10,\n        \"commentary\": \"I love it!!!\",\n        \"date\": \"2023-05-31\",\n        \"createdAt\": \"2023-06-08T17:57:06.597Z\",\n        \"updatedAt\": \"2023-06-08T18:02:45.449Z\",\n        \"album_id\": null,\n        \"song_id\": \"aa1c4da4-ceb6-4542-90ed-7c87dd82fc45\"\n    },\n    {\n        \"id\": \"e77aa38e-024c-45fb-8f84-88a49f56f4f3\",\n        \"score\": 10,\n        \"commentary\": \"I love this album\",\n        \"date\": \"2023-06-02\",\n        \"createdAt\": \"2023-06-08T18:05:09.243Z\",\n        \"updatedAt\": \"2023-06-08T18:05:09.243Z\",\n        \"album_id\": \"fea02073-2c50-4f6b-a551-39e650350ff2\",\n        \"song_id\": null\n    }\n]"
 						}
 					]
 				},
@@ -2313,15 +2820,18 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/ratings/{{ratingId}}",
-							"protocol": "http",
+							"raw": "{{aos-node}}/ratings?id={{ratingId}}",
 							"host": [
-								"localhost"
+								"{{aos-node}}"
 							],
-							"port": "8080",
 							"path": [
-								"ratings",
-								"{{ratingId}}"
+								"ratings"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ratingId}}"
+								}
 							]
 						}
 					},
@@ -2338,15 +2848,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/ratings/{{ratingId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings?id=f5a80b91-1212-4880-bcc9-a476c1775e51",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"ratings",
-										"{{ratingId}}"
+										"ratings"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "f5a80b91-1212-4880-bcc9-a476c1775e51"
+										}
 									]
 								}
 							},
@@ -2376,7 +2889,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 22:22:40 GMT"
+									"value": "Thu, 08 Jun 2023 17:53:55 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2391,7 +2904,7 @@
 							"body": "{\n    \"message\": \"Avaliação excluída com sucesso\"\n}"
 						},
 						{
-							"name": "404 Not Found",
+							"name": "Not Found",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [
@@ -2402,15 +2915,18 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:8080/ratings/{{ratingId}}",
-									"protocol": "http",
+									"raw": "{{aos-node}}/ratings?id=fea02073-2c50-4f6b-a551-39e650350ff2",
 									"host": [
-										"localhost"
+										"{{aos-node}}"
 									],
-									"port": "8080",
 									"path": [
-										"ratings",
-										"{{ratingId}}"
+										"ratings"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "fea02073-2c50-4f6b-a551-39e650350ff2"
+										}
 									]
 								}
 							},
@@ -2440,7 +2956,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Sun, 21 May 2023 22:22:53 GMT"
+									"value": "Thu, 08 Jun 2023 17:54:11 GMT"
 								},
 								{
 									"key": "Connection",

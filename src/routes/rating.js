@@ -7,47 +7,47 @@ import Song from "../models/song.js";
 const router = Router();
 
 router.get('/', async (req, res) => {
-	try {
+	const { id } = req.query;
+
+	if (id) {
+		try {
+			const rating = await Rating.findByPk(id);
+
+			if (!rating) {
+				return res.status(404).json({ error: 'Avaliação não encontrada' });
+			}
+	
+			res.status(200).json(rating);
+		} catch (error) {
+			res.status(500).json({ error: 'Erro ao obter a avaliação' });
+		}
+	} else {
+		try {
 		const ratings = await Rating.findAll();
 
-		res.status(200).json(ratings);
-	} catch (error) {
-		res.status(500).json({ error: 'Erro ao obter as avaliações' });
-	}
-});
-
-router.get('/:ratingId', async (req, res) => {
-	try {
-		const { ratingId } = req.params;
-
-		const rating = await Rating.findByPk(ratingId);
-
-		if (!rating) {
-			return res.status(404).json({ error: 'Avaliação não encontrada' });
+			res.status(200).json(ratings);
+		} catch (error) {
+			res.status(500).json({ error: 'Erro ao obter as avaliações' });
 		}
-
-		res.status(200).json(rating);
-	} catch (error) {
-		res.status(500).json({ error: 'Erro ao obter a avaliação' });
 	}
 });
 
 router.post('/', async (req, res) => {
 	try {
-		const { score, commentary, album_id, song_id } = req.body;
+		const { score, commentary, date, album_id, song_id } = req.body;
 
 		if (!album_id && !song_id) {
 			res.status(400).json({ error: "Avaliação deve referir-se a um álbum ou música" })
 		} else if (album_id && song_id) {
 			res.status(400).json({ error: "Avaliação deve referir-se a um álbum ou música, mas nunca aos dois" })
 		} else if (album_id) {
-			const album = await Song.findByPk(album_id);
+			const album = await Album.findByPk(album_id);
 
 			if (!album) {
 				return res.status(404).json({ error: 'Álbum não encontrado' });
 			}
 
-			const rating = await Rating.create({ score, commentary, album_id });
+			const rating = await Rating.create({ score, commentary, date, album_id });
 			res.status(201).json(rating);
 		} else {
 			const song = await Song.findByPk(song_id);
@@ -56,20 +56,20 @@ router.post('/', async (req, res) => {
 				return res.status(404).json({ error: 'Música não encontrada' });
 			}
 
-			const rating = await Rating.create({ score, commentary, song_id });
+			const rating = await Rating.create({ score, commentary, date, song_id });
 			res.status(201).json(rating);
 		}
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao criar a avaliação' });
+		res.status(500).json({ error: error.message ?? 'Erro ao criar a avaliação' });
 	}
 });
 
-router.put('/:ratingId', async (req, res) => {
+router.put('/', async (req, res) => {
 	try {
-		const { ratingId } = req.params;
-		const { score, commentary } = req.body;
+		const { id } = req.query;
+		const { score, commentary, date } = req.body;
 
-		const rating = await Rating.findByPk(ratingId);
+		const rating = await Rating.findByPk(id);
 
 		if (!rating) {
 			return res.status(404).json({ error: 'Avaliação não encontrada' });
@@ -77,20 +77,21 @@ router.put('/:ratingId', async (req, res) => {
 
 		rating.score = score ?? rating.score;
 		rating.commentary = commentary ?? rating.commentary;
+		rating.date = date ?? rating.date;
 
 		await rating.save();
 
 		res.status(200).json(rating);
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao atualizar a avaliação' });
+		res.status(500).json({ error: error.message ?? 'Erro ao atualizar a avaliação' });
 	}
 });
 
-router.delete('/:ratingId', async (req, res) => {
+router.delete('/', async (req, res) => {
 	try {
-		const { ratingId } = req.params;
+		const { id } = req.query;
 
-		const rating = await Rating.findByPk(ratingId);
+		const rating = await Rating.findByPk(id);
 
 		if (!rating) {
 			return res.status(404).json({ error: 'Avaliação não encontrada' });

@@ -6,28 +6,28 @@ import Album from "../models/album.js"
 const router = Router();
 
 router.get('/', async (req, res) => {
-	try {
-		const songs = await Song.findAll();
+	const { id } = req.query;
 
-		res.status(200).json(songs);
-	} catch (error) {
-		res.status(500).json({ error: 'Erro ao obter as músicas' });
-	}
-});
+	if (id) {
+		try {
+			const song = await Song.findByPk(id);
 
-router.get('/:songId', async (req, res) => {
-	try {
-		const { songId } = req.params;
-
-		const song = await Song.findByPk(songId);
-
-		if (!song) {
-			return res.status(404).json({ error: 'Música não encontrada' });
+			if (!song) {
+				return res.status(404).json({ error: 'Música não encontrada' });
+			}
+	
+			res.status(200).json(song);
+		} catch (error) {
+			res.status(500).json({ error: 'Erro ao obter a música' });
 		}
+	} else {
+		try {
+			const songs = await Song.findAll();
 
-		res.status(200).json(song);
-	} catch (error) {
-		res.status(500).json({ error: 'Erro ao obter a música' });
+			res.status(200).json(songs);
+		} catch (error) {
+			res.status(500).json({ error: 'Erro ao obter as músicas' });
+		}
 	}
 });
 
@@ -45,16 +45,16 @@ router.post('/', async (req, res) => {
 
 		res.status(201).json(song);
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao criar a música' });
+		res.status(500).json({ error: error.message ?? 'Erro ao criar a música' });
 	}
 });
 
-router.put('/:songId', async (req, res) => {
+router.put('/', async (req, res) => {
 	try {
-		const { songId } = req.params;
+		const { id } = req.query;
 		const { name, duration } = req.body;
 
-		const song = await Song.findByPk(songId);
+		const song = await Song.findByPk(id);
 
 		if (!song) {
 			return res.status(404).json({ error: 'Música não encontrada' });
@@ -67,15 +67,15 @@ router.put('/:songId', async (req, res) => {
 
 		res.status(200).json(song);
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao atualizar a música' });
+		res.status(500).json({ error: error.message ?? 'Erro ao atualizar a música' });
 	}
 });
 
-router.delete('/:songId', async (req, res) => {
+router.delete('/', async (req, res) => {
 	try {
-		const { songId } = req.params;
+		const { id } = req.query;
 
-		const song = await Song.findByPk(songId);
+		const song = await Song.findByPk(id);
 
 		if (!song) {
 			return res.status(404).json({ error: 'Música não encontrada' });
