@@ -67,7 +67,7 @@ router.post('/', async (req, res) => {
 router.put('/', async (req, res) => {
 	try {
 		const { id } = req.query;
-		const { score, commentary } = req.body;
+		const { score, commentary, date } = req.body;
 
 		const rating = await Rating.findByPk(id);
 
@@ -77,12 +77,13 @@ router.put('/', async (req, res) => {
 
 		rating.score = score ?? rating.score;
 		rating.commentary = commentary ?? rating.commentary;
+		rating.date = date ?? rating.date;
 
 		await rating.save();
 
 		res.status(200).json(rating);
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao atualizar a avaliação' });
+		res.status(500).json({ error: error.message ?? 'Erro ao atualizar a avaliação' });
 	}
 });
 

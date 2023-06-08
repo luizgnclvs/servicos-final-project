@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
 
 		res.status(201).json(song);
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao criar a música' });
+		res.status(500).json({ error: error.message ?? 'Erro ao criar a música' });
 	}
 });
 
@@ -67,7 +67,7 @@ router.put('/', async (req, res) => {
 
 		res.status(200).json(song);
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao atualizar a música' });
+		res.status(500).json({ error: error.message ?? 'Erro ao atualizar a música' });
 	}
 });
 

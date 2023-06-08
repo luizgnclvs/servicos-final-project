@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 router.put('/', async (req, res) => {
 	try {
 		const { id } = req.query;
-		const { name, artist, cover_url } = req.body;
+		const { name, artist, cover_url, release_year } = req.body;
 
 		const album = await Album.findByPk(id);
 
@@ -55,12 +55,13 @@ router.put('/', async (req, res) => {
 		album.name = name ?? album.name;
 		album.artist = artist ?? album.artist;
 		album.cover_url = cover_url ?? album.cover_url;
+		album.release_year = release_year ?? album.release_year;
 
 		await album.save();
 
 		res.status(200).json(album);
 	} catch (error) {
-		res.status(500).json({ error: 'Erro ao atualizar o álbum' });
+		res.status(500).json({ error: error.message ?? 'Erro ao atualizar o álbum' });
 	}
 });
 
