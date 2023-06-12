@@ -869,7 +869,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Gemini Feed\",\r\n    \"duration\": \"186\",\r\n    \"album_id\": {{albumId}}\r\n}"
+							"raw": "{\r\n    \"name\": \"Gemini Feed\",\r\n    \"duration\": \"186\",\r\n    \"album_id\": \"{{albumId}}\"\r\n}"
 						},
 						"url": {
 							"raw": "{{aos-node}}/songs",
@@ -1576,7 +1576,7 @@
 					]
 				},
 				{
-					"name": "Delete Album",
+					"name": "Delete Song",
 					"request": {
 						"method": "DELETE",
 						"header": [
